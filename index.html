@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Li Yin — Start Here</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #050505;
+      --surface: #0a0a09;
+      --text:    #cec8bb;
+      --mid:     #827d73;
+      --ghost:   #2e2b27;
+      --accent:  #a89672;
+      --serif:   'Newsreader', Georgia, serif;
+      --sans:    'Outfit', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      font-size: 17px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.02;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") repeat;
+      background-size: 256px;
+    }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .ident {
+      padding: 36px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      opacity: 0;
+      animation: fadeIn 1s 0.3s ease forwards;
+    }
+
+    .ident-name {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ghost);
+    }
+
+    .ident-tag {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 200;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ghost);
+    }
+
+    .s { padding-bottom: 20vh; }
+    .s--hero { padding-top: 26vh; padding-bottom: 14vh; }
+    .s--close { padding-bottom: 16vh; }
+
+    .hook {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(1.45rem, 3.8vw, 1.95rem);
+      line-height: 1.38;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      max-width: 540px;
+    }
+
+    .hook-follow {
+      margin-top: 3.2em;
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.6vw, 1.28rem);
+      line-height: 1.55;
+      color: var(--mid);
+    }
+
+    .v {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(1.15rem, 2.6vw, 1.45rem);
+      line-height: 1.5;
+      color: var(--text);
+      letter-spacing: -0.005em;
+    }
+
+    .v + .v { margin-top: 0.55em; }
+    .v--gap { margin-top: 1.8em; }
+    .v--dim { color: var(--mid); }
+
+    .v em {
+      font-weight: 300;
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .close-line {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(1.25rem, 3vw, 1.6rem);
+      line-height: 1.42;
+      color: var(--text);
+    }
+
+    .close-line + .close-line { margin-top: 0.5em; }
+    .close-line--gap { margin-top: 1.8em; }
+    .close-line--dim { color: var(--mid); }
+
+    .close-line em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .label {
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 300;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--ghost);
+      margin-bottom: 5vh;
+    }
+
+    .breath {
+      width: 20px;
+      height: 1px;
+      background: var(--ghost);
+      margin: 10vh 0;
+      opacity: 0.4;
+    }
+
+    .ins {
+      display: flex;
+      justify-content: center;
+    }
+
+    .ins-frame {
+      position: relative;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .ins-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(0.2) contrast(1.05);
+      transition: filter 0.6s ease;
+    }
+
+    .ins-frame:hover img {
+      filter: grayscale(0) contrast(1.02);
+    }
+
+    .ins-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(168, 150, 114, 0.07);
+      pointer-events: none;
+    }
+
+    .ins-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--sans);
+      font-size: 0.5rem;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ghost);
+    }
+
+    .ins--portrait {
+      padding: 8vh 0 18vh;
+    }
+    .ins--portrait .ins-frame {
+      width: min(250px, 48vw);
+      aspect-ratio: 3 / 4;
+    }
+
+    .ins--process {
+      padding: 6vh 0 16vh;
+    }
+    .ins--process .ins-frame {
+      width: min(430px, 82vw);
+      aspect-ratio: 16 / 10;
+    }
+
+    .ins--casual {
+      padding: 4vh 0 12vh;
+      justify-content: flex-start;
+      padding-left: 6%;
+    }
+    .ins--casual .ins-frame {
+      width: min(210px, 42vw);
+      aspect-ratio: 1 / 1;
+    }
+
+    .start-cue {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--mid);
+      margin-bottom: 4vh;
+    }
+
+    .start-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .start-item {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(1rem, 2.3vw, 1.22rem);
+      color: var(--text);
+      text-decoration: none;
+      padding: 1.2em 0;
+      border-bottom: 1px solid rgba(46, 43, 39, 0.5);
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      transition: color 0.3s ease, padding-left 0.3s ease;
+      cursor: pointer;
+    }
+
+    .start-item:first-child {
+      border-top: 1px solid rgba(46, 43, 39, 0.5);
+    }
+
+    .start-item:hover {
+      color: var(--accent);
+      padding-left: 5px;
+    }
+
+    .start-num {
+      font-family: var(--sans);
+      font-size: 0.48rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--ghost);
+      min-width: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .start-item:hover .start-num { color: var(--accent); }
+
+    .foot {
+      padding: 8vh 0 6vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .foot-copy {
+      font-family: var(--sans);
+      font-size: 0.48rem;
+      font-weight: 200;
+      color: var(--ghost);
+      letter-spacing: 0.06em;
+    }
+
+    .foot-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .foot-links a {
+      font-family: var(--sans);
+      font-size: 0.48rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ghost);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .foot-links a:hover { color: var(--accent); }
+
+    .r {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .r.vis {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stg > .r:nth-child(1) { transition-delay: 0s; }
+    .stg > .r:nth-child(2) { transition-delay: 0.07s; }
+    .stg > .r:nth-child(3) { transition-delay: 0.14s; }
+    .stg > .r:nth-child(4) { transition-delay: 0.21s; }
+    .stg > .r:nth-child(5) { transition-delay: 0.28s; }
+    .stg > .r:nth-child(6) { transition-delay: 0.35s; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .page { padding: 0 22px; }
+      .s--hero { padding-top: 20vh; }
+      .s { padding-bottom: 16vh; }
+      .ins--portrait .ins-frame { width: min(200px, 54vw); }
+      .ins--process .ins-frame  { width: min(310px, 84vw); }
+      .ins--casual .ins-frame   { width: min(170px, 48vw); }
+      .ins--casual { padding-left: 0; justify-content: center; }
+      .breath { margin: 7vh 0; }
+    }
+
+    @media (min-width: 1200px) {
+      html { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="ident">
+      <span class="ident-name">Li Yin</span>
+      <span class="ident-tag">Start Here</span>
+    </div>
+
+    <section class="s s--hero stg">
+      <div class="hook r">
+        Most students think they're learning.<br>
+        They're not.<br>
+        They're just getting better<br>
+        at playing a game that doesn't matter.
+      </div>
+      <div class="hook-follow r">
+        So I stopped playing it.
+      </div>
+    </section>
+
+    <!-- REPLACE: remove placeholder, add <img src="your-portrait.jpg" alt="Li Yin"> -->
+    <section class="ins ins--portrait r">
+      <figure class="ins-frame">
+        <div class="ins-ph">Portrait photo</div>
+      </figure>
+    </section>
+
+    <section class="s stg">
+      <div class="label r">Why</div>
+      <div class="v r">I don't want to graduate with a degree and no understanding.</div>
+      <div class="v v--gap r">So I'm learning what textbooks won't teach.</div>
+      <div class="v r">How money actually moves.</div>
+      <div class="v r">How decisions actually get made.</div>
+      <div class="v v--dim r">How AI changes both.</div>
+    </section>
+
+    <div class="breath r"></div>
+
+    <section class="s stg">
+      <div class="label r">Who I am</div>
+      <div class="v v--dim r">I'm not an expert.</div>
+      <div class="v v--dim r">I'm not building a brand.</div>
+      <div class="v v--gap r">I'm a student trying to think clearly —</div>
+      <div class="v r">in a system that rewards <em>memorization.</em></div>
+    </section>
+
+    <div class="breath r"></div>
+
+    <section class="s stg">
+      <div class="label r">How</div>
+      <div class="v r">I test ideas with AI.</div>
+      <div class="v r">I break down what I don't understand.</div>
+      <div class="v r">I keep what survives contact with reality.</div>
+      <div class="v v--dim v--gap r">Everything else gets discarded.</div>
+    </section>
+
+    <!-- REPLACE: remove placeholder, add <img src="your-process.jpg" alt="Working"> -->
+    <section class="ins ins--process r">
+      <figure class="ins-frame">
+        <div class="ins-ph">Process / proof photo</div>
+      </figure>
+    </section>
+
+    <section class="s stg">
+      <div class="label r">What for</div>
+      <div class="v r">I want to become dangerous — not impressive.</div>
+      <div class="v v--dim v--gap r">Not someone who sounds smart.</div>
+      <div class="v r">Someone who actually <em>understands.</em></div>
+    </section>
+
+    <section class="s s--close stg">
+      <div class="close-line close-line--dim r">It was never about grades.</div>
+      <div class="close-line close-line--gap r">It was about</div>
+      <div class="close-line r"><em>who understood what was actually going on.</em></div>
+    </section>
+
+    <div class="breath r"></div>
+
+    <section class="s">
+      <div class="start-cue r">You can start here:</div>
+      <div class="start-list stg">
+        <a class="start-item r" href="#"><span class="start-num">01</span>You're not losing to AI</a>
+        <a class="start-item r" href="#"><span class="start-num">02</span>Why most students are already behind</a>
+        <a class="start-item r" href="#"><span class="start-num">03</span>How I'm trying to catch up</a>
+      </div>
+    </section>
+
+    <footer class="foot r">
+      <span class="foot-copy">© 2026 Li Yin</span>
+      <div class="foot-links">
+        <a href="https://tiktok.com/@chewonthis0125" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://instagram.com/_chew_on_this_" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://github.com/liyin25" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </footer>
+
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('vis');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.13, rootMargin: '0px 0px -24px 0px' });
+      document.querySelectorAll('.r').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
