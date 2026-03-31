@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Li Yin — Start Here</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+
   <style>
     :root {
-      --bg:      #050505;
+      --bg: #050505;
       --surface: #0a0a09;
-      --text:    #cec8bb;
-      --mid:     #827d73;
-      --ghost:   #2e2b27;
-      --accent:  #a89672;
-      --serif:   'Newsreader', Georgia, serif;
-      --sans:    'Outfit', -apple-system, sans-serif;
+      --text: #e7e1d5;
+      --mid: #b0a897;
+      --ghost: #6f685d;
+      --accent: #a89672;
+      --serif: "Newsreader", Georgia, serif;
+      --sans: "Outfit", -apple-system, sans-serif;
     }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     html {
       font-size: 17px;
@@ -36,7 +43,7 @@
     }
 
     body::after {
-      content: '';
+      content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
@@ -46,7 +53,10 @@
       background-size: 256px;
     }
 
-    ::selection { background: var(--accent); color: var(--bg); }
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
 
     .page {
       max-width: 620px;
@@ -65,76 +75,100 @@
 
     .ident-name {
       font-family: var(--sans);
-      font-size: 0.58rem;
-      font-weight: 300;
-      letter-spacing: 0.22em;
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--ghost);
     }
 
     .ident-tag {
       font-family: var(--sans);
-      font-size: 0.5rem;
-      font-weight: 200;
-      letter-spacing: 0.16em;
+      font-size: 0.56rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--ghost);
     }
 
-    .s { padding-bottom: 20vh; }
-    .s--hero { padding-top: 26vh; padding-bottom: 14vh; }
-    .s--close { padding-bottom: 16vh; }
+    .s {
+      padding-bottom: 18vh;
+    }
+
+    .s--hero {
+      padding-top: 24vh;
+      padding-bottom: 14vh;
+    }
+
+    .s--close {
+      padding-bottom: 16vh;
+    }
 
     .hook {
       font-family: var(--serif);
       font-weight: 400;
       font-size: clamp(1.45rem, 3.8vw, 1.95rem);
-      line-height: 1.38;
+      line-height: 1.34;
       color: var(--text);
       letter-spacing: -0.01em;
-      max-width: 540px;
+      max-width: 560px;
     }
 
     .hook-follow {
-      margin-top: 3.2em;
+      margin-top: 2.8em;
       font-family: var(--serif);
       font-weight: 300;
       font-style: italic;
-      font-size: clamp(1.05rem, 2.6vw, 1.28rem);
+      font-size: clamp(1.02rem, 2.5vw, 1.22rem);
       line-height: 1.55;
       color: var(--mid);
     }
 
     .v {
       font-family: var(--serif);
-      font-weight: 300;
-      font-size: clamp(1.15rem, 2.6vw, 1.45rem);
-      line-height: 1.5;
+      font-weight: 400;
+      font-size: clamp(1.12rem, 2.4vw, 1.4rem);
+      line-height: 1.58;
       color: var(--text);
-      letter-spacing: -0.005em;
+      letter-spacing: -0.003em;
     }
 
-    .v + .v { margin-top: 0.55em; }
-    .v--gap { margin-top: 1.8em; }
-    .v--dim { color: var(--mid); }
+    .v + .v {
+      margin-top: 0.55em;
+    }
+
+    .v--gap {
+      margin-top: 1.8em;
+    }
+
+    .v--dim {
+      color: var(--mid);
+    }
 
     .v em {
-      font-weight: 300;
       font-style: italic;
       color: var(--accent);
     }
 
     .close-line {
       font-family: var(--serif);
-      font-weight: 300;
-      font-size: clamp(1.25rem, 3vw, 1.6rem);
-      line-height: 1.42;
+      font-weight: 400;
+      font-size: clamp(1.22rem, 2.8vw, 1.55rem);
+      line-height: 1.45;
       color: var(--text);
     }
 
-    .close-line + .close-line { margin-top: 0.5em; }
-    .close-line--gap { margin-top: 1.8em; }
-    .close-line--dim { color: var(--mid); }
+    .close-line + .close-line {
+      margin-top: 0.5em;
+    }
+
+    .close-line--gap {
+      margin-top: 1.8em;
+    }
+
+    .close-line--dim {
+      color: var(--mid);
+    }
 
     .close-line em {
       font-style: italic;
@@ -143,20 +177,20 @@
 
     .label {
       font-family: var(--sans);
-      font-size: 0.5rem;
-      font-weight: 300;
-      letter-spacing: 0.24em;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--ghost);
-      margin-bottom: 5vh;
+      color: var(--mid);
+      margin-bottom: 3.5vh;
     }
 
     .breath {
       width: 20px;
       height: 1px;
       background: var(--ghost);
-      margin: 10vh 0;
-      opacity: 0.4;
+      margin: 8vh 0;
+      opacity: 0.45;
     }
 
     .ins {
@@ -175,8 +209,8 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: grayscale(0.2) contrast(1.05);
-      transition: filter 0.6s ease;
+      filter: grayscale(0.08) contrast(1.03);
+      transition: filter 0.5s ease;
     }
 
     .ins-frame:hover img {
@@ -184,57 +218,53 @@
     }
 
     .ins-frame::after {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
-      border: 1px solid rgba(168, 150, 114, 0.07);
+      border: 1px solid rgba(168, 150, 114, 0.08);
       pointer-events: none;
-    }
-
-    .ins-ph {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--sans);
-      font-size: 0.5rem;
-      font-weight: 300;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ghost);
     }
 
     .ins--portrait {
       padding: 8vh 0 18vh;
     }
+
     .ins--portrait .ins-frame {
       width: min(250px, 48vw);
       aspect-ratio: 3 / 4;
     }
 
-    .ins--process {
-      padding: 6vh 0 16vh;
-    }
-    .ins--process .ins-frame {
-      width: min(430px, 82vw);
-      aspect-ratio: 16 / 10;
+    .ins--proof {
+      padding: 6vh 0 18vh;
     }
 
-    .ins--casual {
-      padding: 4vh 0 12vh;
-      justify-content: flex-start;
-      padding-left: 6%;
+    .ins--proof .ins-frame {
+      width: min(390px, 78vw);
+      aspect-ratio: 4 / 5;
     }
-    .ins--casual .ins-frame {
-      width: min(210px, 42vw);
-      aspect-ratio: 1 / 1;
+
+    .ins--process {
+      padding: 6vh 0 18vh;
+    }
+
+    .ins--process .ins-frame {
+      width: min(430px, 82vw);
+      aspect-ratio: 4 / 5;
+    }
+
+    .ins--authority {
+      padding: 6vh 0 18vh;
+    }
+
+    .ins--authority .ins-frame {
+      width: min(380px, 76vw);
+      aspect-ratio: 4 / 5;
     }
 
     .start-cue {
       font-family: var(--serif);
       font-weight: 300;
-      font-size: 0.92rem;
+      font-size: 0.96rem;
       font-style: italic;
       color: var(--mid);
       margin-bottom: 4vh;
@@ -271,15 +301,17 @@
 
     .start-num {
       font-family: var(--sans);
-      font-size: 0.48rem;
-      font-weight: 300;
+      font-size: 0.5rem;
+      font-weight: 400;
       letter-spacing: 0.1em;
       color: var(--ghost);
       min-width: 18px;
       transition: color 0.3s ease;
     }
 
-    .start-item:hover .start-num { color: var(--accent); }
+    .start-item:hover .start-num {
+      color: var(--accent);
+    }
 
     .foot {
       padding: 8vh 0 6vh;
@@ -292,8 +324,8 @@
 
     .foot-copy {
       font-family: var(--sans);
-      font-size: 0.48rem;
-      font-weight: 200;
+      font-size: 0.52rem;
+      font-weight: 300;
       color: var(--ghost);
       letter-spacing: 0.06em;
     }
@@ -305,8 +337,8 @@
 
     .foot-links a {
       font-family: var(--sans);
-      font-size: 0.48rem;
-      font-weight: 300;
+      font-size: 0.5rem;
+      font-weight: 400;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--ghost);
@@ -314,13 +346,16 @@
       transition: color 0.3s ease;
     }
 
-    .foot-links a:hover { color: var(--accent); }
+    .foot-links a:hover {
+      color: var(--accent);
+    }
 
     .r {
       opacity: 0;
       transform: translateY(10px);
-      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      transition:
+        opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .r.vis {
@@ -337,92 +372,94 @@
 
     @keyframes fadeIn {
       from { opacity: 0; }
-      to   { opacity: 1; }
+      to { opacity: 1; }
     }
 
     @media (max-width: 600px) {
-      .page { padding: 0 22px; }
-      .s--hero { padding-top: 20vh; }
-      .s { padding-bottom: 16vh; }
-      .ins--portrait .ins-frame { width: min(200px, 54vw); }
-      .ins--process .ins-frame  { width: min(310px, 84vw); }
-      .ins--casual .ins-frame   { width: min(170px, 48vw); }
-      .ins--casual { padding-left: 0; justify-content: center; }
-      .breath { margin: 7vh 0; }
+      .page {
+        padding: 0 22px;
+      }
+
+      .s--hero {
+        padding-top: 20vh;
+      }
+
+      .s {
+        padding-bottom: 16vh;
+      }
+
+      .ins--portrait .ins-frame {
+        width: min(200px, 54vw);
+      }
+
+      .ins--proof .ins-frame,
+      .ins--process .ins-frame,
+      .ins--authority .ins-frame {
+        width: min(310px, 84vw);
+      }
+
+      .breath {
+        margin: 7vh 0;
+      }
     }
 
     @media (min-width: 1200px) {
-      html { font-size: 18px; }
+      html {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
-
     <div class="ident">
       <span class="ident-name">Li Yin</span>
       <span class="ident-tag">Start Here</span>
     </div>
 
-<section class="s s--hero stg">
-  <div class="hook r">
-    Most students think they're learning.<br>
-    They're not.<br>
-    They're just getting better<br>
-    at playing a game that doesn't matter.
-  </div>
-  <div class="hook-follow r">
-    So I started building outside it.
-  </div>
-</section>
+    <section class="s s--hero stg">
+      <div class="hook r">
+        Most students think they're learning.<br />
+        They're not.<br />
+        They're just getting better<br />
+        at playing a game that doesn't matter.
+      </div>
+      <div class="hook-follow r">
+        So I started building outside it.
+      </div>
+    </section>
 
-    <!-- REPLACE: remove placeholder, add <img src="your-portrait.jpg" alt="Li Yin"> -->
-<!-- Portrait -->
-<section class="ins ins--portrait r">
-  <figure class="ins-frame">
-    <img src="portrait.jpg" alt="Li Yin portrait">
-  </figure>
-</section>
+    <section class="ins ins--portrait r">
+      <figure class="ins-frame">
+        <img src="portrait.jpg" alt="Li Yin portrait" />
+      </figure>
+    </section>
 
-<!-- Process -->
-<section class="ins ins--process r">
-  <figure class="ins-frame">
-    <img src="process.jpg" alt="Li Yin working">
-  </figure>
-</section>
+    <section class="s stg">
+      <div class="label r">Why</div>
+      <div class="v r">I don't want to graduate with a degree and no judgment.</div>
+      <div class="v v--gap r">So I'm learning what classrooms rarely teach.</div>
+      <div class="v r">How money actually moves.</div>
+      <div class="v r">How decisions actually get made.</div>
+      <div class="v v--dim r">And how AI changes both.</div>
+    </section>
 
-<!-- Identity -->
-<section class="ins ins--authority r">
-  <figure class="ins-frame">
-    <img src="identity.jpg" alt="Li Yin presentation">
-  </figure>
-</section>
-
-<!-- Proof -->
-<section class="ins ins--proof r">
-  <figure class="ins-frame">
-    <img src="proof.jpg" alt="Competition proof">
-  </figure>
-</section>
-
-<section class="s stg">
-  <div class="label r">Why</div>
-  <div class="v r">I don't want to graduate with a degree and no judgment.</div>
-  <div class="v v--gap r">So I'm learning what classrooms rarely teach.</div>
-  <div class="v r">How money actually moves.</div>
-  <div class="v r">How decisions actually get made.</div>
-  <div class="v v--dim r">And how AI changes both.</div>
-</section>
+    <section class="ins ins--proof r">
+      <figure class="ins-frame">
+        <img src="proof.jpg" alt="Competition proof" />
+      </figure>
+    </section>
 
     <div class="breath r"></div>
 
-<section class="s stg">
-  <div class="label r">Who I am</div>
-  <div class="v v--dim r">I'm not an expert.</div>
-  <div class="v v--dim r">I'm not here to teach.</div>
-  <div class="v v--gap r">I'm a finance student trying to think clearly —</div>
-  <div class="v r">in a system that rewards <em>memorization.</em></div>
-</section>
+    <section class="s stg">
+      <div class="label r">Who I am</div>
+      <div class="v v--dim r">I'm not an expert.</div>
+      <div class="v v--dim r">I'm not here to teach.</div>
+      <div class="v v--gap r">I'm a finance student trying to think clearly —</div>
+      <div class="v r">in a system that rewards <em>memorization.</em></div>
+    </section>
 
     <div class="breath r"></div>
 
@@ -434,44 +471,45 @@
       <div class="v v--dim v--gap r">Everything else gets discarded.</div>
     </section>
 
-    <!-- REPLACE: remove placeholder, add <img src="your-process.jpg" alt="Working"> -->
-<section class="ins ins--process r">
-  <figure class="ins-frame">
-    <img src="IMG_2996.jpg" alt="Working process">
-  </figure>
-</section>
-
     <section class="ins ins--process r">
-  <figure class="ins-frame">
-    <img src="IMG_5936.jpg" alt="Presentation authority">
-  </figure>
-</section>
-
-<section class="s stg">
-  <div class="label r">What for</div>
-  <div class="v r">Most students optimize for grades.</div>
-  <div class="v v--gap r">I'm optimizing for <em>judgment.</em></div>
-  <div class="v v--dim v--gap r">Not to sound smart.</div>
-  <div class="v r">To actually understand what is going on.</div>
-</section>
-
-<section class="s s--close stg">
-  <div class="close-line close-line--dim r">It was never about grades.</div>
-  <div class="close-line close-line--dim r">It was never about looking busy.</div>
-  <div class="close-line close-line--gap r">It was about</div>
-  <div class="close-line r"><em>who understood what was actually going on.</em></div>
-</section>
+      <figure class="ins-frame">
+        <img src="process.jpg" alt="Li Yin working" />
+      </figure>
+    </section>
 
     <div class="breath r"></div>
 
-<section class="s">
-  <div class="start-cue r">Start here:</div>
-  <div class="start-list stg">
-    <a class="start-item r" href="#"><span class="start-num">01</span>You're not losing to AI</a>
-    <a class="start-item r" href="#"><span class="start-num">02</span>Why grades are no longer enough</a>
-    <a class="start-item r" href="#"><span class="start-num">03</span>What I'm building in public</a>
-  </div>
-</section>
+    <section class="s stg">
+      <div class="label r">What for</div>
+      <div class="v r">Most students optimize for grades.</div>
+      <div class="v v--gap r">I'm optimizing for <em>judgment.</em></div>
+      <div class="v v--dim v--gap r">Not to sound smart.</div>
+      <div class="v r">To actually understand what is going on.</div>
+    </section>
+
+    <section class="ins ins--authority r">
+      <figure class="ins-frame">
+        <img src="identity.jpg" alt="Li Yin presentation" />
+      </figure>
+    </section>
+
+    <section class="s s--close stg">
+      <div class="close-line close-line--dim r">It was never about grades.</div>
+      <div class="close-line close-line--dim r">It was never about looking busy.</div>
+      <div class="close-line close-line--gap r">It was about</div>
+      <div class="close-line r"><em>who understood what was actually going on.</em></div>
+    </section>
+
+    <div class="breath r"></div>
+
+    <section class="s">
+      <div class="start-cue r">Start here:</div>
+      <div class="start-list stg">
+        <a class="start-item r" href="#"><span class="start-num">01</span>You're not losing to AI</a>
+        <a class="start-item r" href="#"><span class="start-num">02</span>Why grades are no longer enough</a>
+        <a class="start-item r" href="#"><span class="start-num">03</span>What I'm building in public</a>
+      </div>
+    </section>
 
     <footer class="foot r">
       <span class="foot-copy">© 2026 Li Yin</span>
@@ -481,19 +519,23 @@
         <a href="https://github.com/liyin25" target="_blank" rel="noopener">GitHub</a>
       </div>
     </footer>
-
   </div>
+
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('vis');
-            observer.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.13, rootMargin: '0px 0px -24px 0px' });
-      document.querySelectorAll('.r').forEach(el => observer.observe(el));
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("vis");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.13, rootMargin: "0px 0px -24px 0px" }
+      );
+
+      document.querySelectorAll(".r").forEach((el) => observer.observe(el));
     });
   </script>
 </body>
